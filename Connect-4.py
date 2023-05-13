@@ -4,7 +4,7 @@ def create_board():
     return board
 board = create_board()
 
-
+#NEGO
 def drop(board , row , col , player):
     board[row][col] = player
 def is_valid(board , col):
