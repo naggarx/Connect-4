@@ -19,10 +19,9 @@ def main():
         # YOUR CODE GOES HERE
         # Insert here the action you want to perform based on the output of the algorithm
         # You can use the following function to select a column
-       
-        #random_column,minimaxscore = algo.minimax(new_board, 1, True)
+        random_column,minimaxscore = algo.minimax(game_board, 1, True)
         #print(random_column)
-        #board.select_column(random_column)
+        board.select_column(random_column)
         time.sleep(5)
 
 
