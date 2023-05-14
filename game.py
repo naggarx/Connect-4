@@ -10,7 +10,7 @@ import math
 
 def main():
     board = Board()
-    time.sleep(2)
+    time.sleep(5)
     game_end = False
     while not game_end:
         (game_board, game_end) = board.get_game_grid()
@@ -23,7 +23,7 @@ def main():
         #random_column,minimaxscore = algo.minimax(new_board, 1, True)
         #print(random_column)
         #board.select_column(random_column)
-        time.sleep(2)
+        time.sleep(5)
 
 
 if __name__ == "__main__":
