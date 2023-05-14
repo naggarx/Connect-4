@@ -17,10 +17,10 @@ def main():
         #board.print_grid(game_board)
         # Copy the content of game_board to new_board
         #print(game_board)
-        new_board = np.zeros((6, 7))
+        new_board = np.zeros((7, 8))
         # Copy the content of game_board to new_board
-        for i in range(len(game_board)):
-            for j in range(len(game_board[i])):
+        for i in range(len(game_board) ):
+            for j in range(len(game_board[i]) ):
                 if game_board[i][j] == 0:
                     new_board[i][j] = 0
                 elif game_board[i][j] == 1:
@@ -28,11 +28,12 @@ def main():
                 elif game_board[i][j] == 2:
                     new_board[i][j] = 2
         # YOUR CODE GOES HERE
+        #print(new_board)
         # Insert here the action you want to perform based on the output of the algorithm
         # You can use the following function to select a column
-        random_column,minimaxscore = algo.alphamax(new_board, 8,-math.inf , math.inf, True)
-        print(random_column)
-        board.select_column(random_column)
+        #random_column,minimaxscore = algo.alphamax(new_board, 4,-math.inf , math.inf, True)
+        #print(random_column)
+        board.select_column(6)
         time.sleep(2)
 
 

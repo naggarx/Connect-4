@@ -16,11 +16,11 @@ def evaluate_window(window, piece):
 	if window.count(piece) == 4:
 		score += 100
 	elif window.count(piece) == 3 and window.count(0) == 1:
-		score += 5
+		score += 75
 	elif window.count(piece) == 2 and window.count(0) == 2:
-		score += 2
+		score += 50
 	if window.count(opp_piece) == 3 and window.count(0) == 1:
-		score -= 4
+		score -= 60
 	return score
 
 
@@ -119,9 +119,9 @@ def minimax(board, depth, player):
     if depth == 0 or terminal:
         if terminal:
             if winning_move(board,1):
-                return (None,math.inf)
+                return (None,1000000000000000)
             elif winning_move(board,2):
-                return (None,-math.inf)
+                return (None,-1000000000000000)
             else: #game over
                 return (None,0)
         else: 
@@ -157,9 +157,9 @@ def alphamax(board, depth, alpha, beta, maximizingPlayer):
 	if depth == 0 or terminal:
 		if terminal:
 			if winning_move(board, 1):
-				return (None, math.inf)
+				return (None, 1000000000000000)
 			elif winning_move(board, 2):
-				return (None, -math.inf)
+				return (None, -1000000000000000)
 			else: # Game is over, no more valid moves
 				return (None, 0)
 		else: # Depth is zero
