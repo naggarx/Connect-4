@@ -151,4 +151,48 @@ def minimax(board, depth, player):
                 value = new_score
                 mincol = col
         return mincol, value
+def alphamax(board, depth, alpha, beta, maximizingPlayer):
+	valid_locations = get_valid_locations(board)
+	terminal = is_terminal(board)
+	if depth == 0 or terminal:
+		if terminal:
+			if winning_move(board, 1):
+				return (None, math.inf)
+			elif winning_move(board, 2):
+				return (None, -math.inf)
+			else: # Game is over, no more valid moves
+				return (None, 0)
+		else: # Depth is zero
+			return (None, score_position(board, 1))
+	if maximizingPlayer:
+		value = -math.inf
+		column = random.choice(valid_locations)
+		for col in valid_locations:
+			row = get_next(board, col)
+			b_copy = board.copy()
+			drop(b_copy, row, col, 1)
+			new_score = alphamax(b_copy, depth-1, alpha, beta, False)[1]
+			if new_score > value:
+				value = new_score
+				column = col
+			alpha = max(alpha, value)
+			if alpha >= beta:
+				break
+		return column, value
+
+	else: # Minimizing player
+		value = math.inf
+		column = random.choice(valid_locations)
+		for col in valid_locations:
+			row = get_next(board, col)
+			b_copy = board.copy()
+			drop(b_copy, row, col, 2)
+			new_score = alphamax(b_copy, depth-1, alpha, beta, True)[1]
+			if new_score < value:
+				value = new_score
+				column = col
+			beta = min(beta, value)
+			if alpha >= beta:
+				break
+		return column, value
         
