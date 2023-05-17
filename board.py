@@ -42,7 +42,7 @@ class Board:
         return grid
 
     def _get_grid_cordinates(self):
-        startCord = (75,70)
+        startCord = (50, 55)
         cordArr = []
         for i in range(0, 7):
             for j in range(0, 6):
