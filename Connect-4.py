@@ -100,8 +100,6 @@ while not game_over:
 					turn = turn % 2
 					print_board(board)
 					draw_board(board)
-
-
 	# # Ask for Player 2 Input
 	if turn == AI and not game_over:				
 		col, minimax_score = MiniMax.alphamax(board, 5, -math.inf, math.inf, True)
