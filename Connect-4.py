@@ -104,7 +104,7 @@ while not game_over:
 
 	# # Ask for Player 2 Input
 	if turn == AI and not game_over:				
-		col, minimax_score = MiniMax.alphamax(board, 4, -math.inf, math.inf, True)
+		col, minimax_score = MiniMax.alphamax(board, 5, -math.inf, math.inf, True)
 		if MiniMax.is_valid(board, col):
 			row = MiniMax.get_next(board, col)
 			drop_piece(board, row, col, AI_PIECE)
