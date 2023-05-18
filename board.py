@@ -98,7 +98,6 @@ class Board:
                self._get_grid_cordinates()[column][1] + LEFT + 700,
                self._get_grid_cordinates()[column][0] + TOP + 25,
             )
-       
         else:
          pyautogui.click(
                 self._get_grid_cordinates()[column][1] + LEFT ,
