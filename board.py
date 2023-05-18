@@ -37,7 +37,9 @@ class Board:
                     grid[i][j] = EMPTY
                 elif grid[i][j][0] > 200:
                     grid[i][j] = RED
-                elif grid[i][j][0] > 50:
+                elif grid[i][j][0] > 40:
+                    grid[i][j] = BLUE
+                else:
                     grid[i][j] = BLUE
         return grid
 
