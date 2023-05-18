@@ -32,7 +32,7 @@ def main():
         board.print_grid(game_board);
         # Insert here the action you want to perform based on the output of the algorithm
         # You can use the following function to select a column
-        random_column,minimaxscore = algo.alphamax(np.flip(new_board, 0), 4,-math.inf , math.inf, True)
+        random_column,minimaxscore = algo.alphamax(np.flip(new_board, 0), 5,-math.inf , math.inf, True)
         print(random_column)
         board.select_column(random_column)
       
