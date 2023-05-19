@@ -7,12 +7,12 @@ import math
 from ctypes.wintypes import RGB
 import tkinter as tk
 from turtle import color, left
-# GAME LINK
-# http://kevinshannon.com/connect4/
 from ctypes.wintypes import RGB
 import tkinter as tk
 from turtle import color, left
- 
+# GAME LINK
+# http://kevinshannon.com/connect4/
+
 algorithm = None
 difficulty = 1
 class myGUI:
@@ -46,9 +46,7 @@ class myGUI:
         self.button.pack(padx=10, pady=10)
         self.button.config(fg='red')
 
-
-
-         
+ 
         self.label2 = tk.Label(self.root, text="Select Difficulty:", font=('Arial', 15))
         self.label2.pack(padx=10, pady=10)
         self.label2.config(fg='green')
@@ -76,11 +74,10 @@ class myGUI:
         self.button = tk.Button(self.root, text="Press", font=('Arial', 10), command=self.show_message1)
         self.button.pack(padx=10, pady=10)
         self.button.config(fg='red')
-
-
         self.root.mainloop()
 
     def show_message(self):
+        algorithm = None
         if self.chech_State.get() == 1:
             algorithm = "Alpha"
         elif self.chech_State1.get() == 1:
@@ -91,6 +88,7 @@ class myGUI:
             print("Please select an algorithm.")
 
     def show_message1(self):
+        difficulty  = 0
         if self.chech_State2.get() == 1:
            difficulty = 1
         elif self.chech_State3.get() == 1:
@@ -102,51 +100,50 @@ class myGUI:
         elif self.chech_State6.get() == 1:
            difficulty = 5     
         if difficulty:
-            return difficulty
+            pass
         else:
-            print("Please select an algorithm.")        
+            print("Please select an algorithm.") 
     def rgb_to_hex(self, rgb): 
         return '#{:02x}{:02x}{:02x}'.format(*[int(x) for x in rgb])        
-
 myGUI()
-
-
 def main():
-    board = Board()
-    game_end = False
-    time.sleep(2)
-    while not game_end:
-        (game_board, game_end) = board.get_game_grid()
-        # FOR DEBUG PURPOSES
-        #board.print_grid(game_board)
-        # Copy the content of game_board to new_board
-        #print(game_board)
-        new_board = np.zeros((6, 7))
-        # Copy the content of game_board to new_board
-        for i in range(6):
-            for j in range(7):
-                if game_board[i][j] == 0:
-                    new_board[i][j] = 0
-                elif game_board[i][j] == 1:
-                    new_board[i][j] = 1
-                elif game_board[i][j] == 2:
-                    new_board[i][j] = 2
-        # YOUR CODE GOES HERE
-        print(new_board)
-        board.print_grid(game_board);
-        # Insert here the action you want to perform based on the output of the algorithm
-        # You can use the following function to select a column
-        if algorithm == "Alpha":
-            random_column,minimaxscore = algo.alphamax(np.flip(new_board, 0), difficulty,-math.inf , math.inf, True)
-            print("alpha")
-        else:
-            random_column,minimaxscore = algo.minimax(np.flip(new_board, 0), difficulty,True)
-            print("mini")
-        print(random_column)
-        board.select_column(random_column)
-      
+        board = Board()
+        game_end = False
         time.sleep(2)
+        while not game_end:
+            (game_board, game_end) = board.get_game_grid()
+            # FOR DEBUG PURPOSES
+            #board.print_grid(game_board)
+            # Copy the content of game_board to new_board
+            #print(game_board)
+            new_board = np.zeros((6, 7))
+            # Copy the content of game_board to new_board
+            for i in range(6):
+                for j in range(7):
+                    if game_board[i][j] == 0:
+                        new_board[i][j] = 0
+                    elif game_board[i][j] == 1:
+                        new_board[i][j] = 1
+                    elif game_board[i][j] == 2:
+                        new_board[i][j] = 2
+            # YOUR CODE GOES HERE
+            print(new_board)
+            board.print_grid(game_board);
+            # Insert here the action you want to perform based on the output of the algorithm
+            # You can use the following function to select a column
+            if algorithm == "Alpha":
+                random_column,minimaxscore = algo.alphamax(np.flip(new_board, 0), difficulty,-math.inf , math.inf, True)
+                print("alpha")
+            else:
+                random_column,minimaxscore = algo.minimax(np.flip(new_board, 0), difficulty,True)
+                print("mini")
+            print(random_column)
+            board.select_column(random_column)
+        
+            time.sleep(2)
+
+        
 
 
 if __name__ == "__main__":
-    main()
+        main()
