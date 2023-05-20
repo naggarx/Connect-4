@@ -1,3 +1,4 @@
+#This file you can use if you want to try play against the AI agent
 import numpy as np
 import random
 import pygame

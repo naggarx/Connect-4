@@ -5,10 +5,7 @@ import numpy as np
 import MiniMax as algo
 import math
 import GUI 
-
-# GAME LINK
-# http://kevinshannon.com/connect4/
-class Game:
+class MyGame:
         def __init__(self):
             self.board = Board()
             self.algorithm = None
@@ -45,13 +42,5 @@ class Game:
                     print("mini")
                 print(random_column)
                 self.board.select_column(random_column)
+                print(self.difficulty)
                 time.sleep(2)
-
-        
-
-def main():
-        game = Game()
-        GUI.myGUI(game)
-           
-if __name__ == "__main__":
-        main()
